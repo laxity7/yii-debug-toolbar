@@ -62,5 +62,6 @@ See: [issues](https://github.com/malyshev/yii-debug-toolbar/issues)
 <img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_1.png" alt="Screenshot1" />
 <img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_2.png" alt="Screenshot2" />
 <img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_3.png" alt="Screenshot3" />
+<img src="https://dl.dropboxusercontent.com/sh/09k0c42xasghu6c/Zq0WrQpxw5/screenshot_4.png" alt="Screenshot4" />
 
 
