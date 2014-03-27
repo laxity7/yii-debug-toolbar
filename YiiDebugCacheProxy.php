@@ -163,7 +163,7 @@ class YiiDebugCacheProxy extends CCache
 	 */
 	public function delete($id)
 	{
-		if ($this->profileEnabled)
+		if ($this->enableProfiling)
 		{
 			Yii::beginProfile(__METHOD__.'("'.$id.'")', $this->_logCategory.'.delete');
 		}
@@ -182,7 +182,7 @@ class YiiDebugCacheProxy extends CCache
 	 */
 	public function flush()
 	{
-		if ($this->profileEnabled)
+		if ($this->enableProfiling)
 		{
 			Yii::beginProfile(__METHOD__.'()', $this->_logCategory.'.flush');
 		}
