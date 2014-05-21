@@ -47,6 +47,7 @@ class YiiDebugCacheProxy extends CCache
 		'mget' => 0,
 		'mget_time' => 0,
 		'set' => 0, // write requests quantity
+		'add' => 0, // add requests quantity
 		'set_time' => 0, // write time
 		'delete' => 0, // delete requests quantity
 		'delete_time' => 0, // delete time
@@ -156,6 +157,31 @@ class YiiDebugCacheProxy extends CCache
 		return $returnValue;
 	}
 
+	/**
+	 * Stores a value identified by a key into cache if the cache does not contain this key.
+	 * Nothing will be done if the cache already contains the key.
+	 * @param string $id the key identifying the value to be cached
+	 * @param mixed $value the value to be cached
+	 * @param integer $expire the number of seconds in which the cached value will expire. 0 means never expire.
+	 * @param ICacheDependency $dependency dependency of the cached item. If the dependency changes, the item is labeled invalid.
+	 * @return boolean true if the value is successfully stored into cache, false otherwise
+	 */
+	public function add($id,$value,$expire=0,$dependency=null)
+	{
+		if ($this->enableProfiling)
+		{
+			Yii::beginProfile(__METHOD__.'("'.$id.'")', $this->_logCategory.'.add');
+		}
+
+		$returnValue = $this->getCacheProxy()->add($id, $value, $expire, $dependency);
+
+		if ($this->enableProfiling)
+		{
+			++$this->_stats['add'];
+			Yii::endProfile(__METHOD__.'("'.$id.'")', $this->_logCategory.'.add');
+		}
+		return $returnValue;
+	}
 	/**
 	 * @see \CCache::delete
 	 * @param string $id
