@@ -35,7 +35,7 @@ class YiiDebug extends CComponent
             }
             return;
         } else if (empty($_SERVER['SERVER_ADDR']) || empty($_SERVER['REMOTE_ADDR']) || $_SERVER['SERVER_ADDR'] !== $_SERVER['REMOTE_ADDR']) {
-            return;
+            //return;
         }
 
         $backTrace = debug_backtrace();
