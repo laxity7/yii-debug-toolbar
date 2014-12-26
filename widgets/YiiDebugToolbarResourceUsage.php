@@ -66,7 +66,7 @@ class YiiDebugToolbarResourceUsage extends CWidget
             'i' => 'p',
             'value' => $memoryUsage,
             'unit' => 'megabytes',
-			'title' => YiiDebug::t('Memory Usage') .'/'. YiiDebug::t('Memory Peak Usage');
+			'title' => YiiDebug::t('Memory Usage') .'/'. YiiDebug::t('Memory Peak Usage')
         );
 
 
