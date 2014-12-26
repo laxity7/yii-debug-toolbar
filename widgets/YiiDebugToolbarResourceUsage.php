@@ -46,14 +46,14 @@ class YiiDebugToolbarResourceUsage extends CWidget
             'i' => 'b',
             'value' => sprintf('%0.4F', $this->getLoadTime()),
             'unit' => 'seconds',
-			'title' => YiiDebug::t('Page Load Time')
+	    'title' => YiiDebug::t('Page Load Time')
         );
 
         $data[] = array(
             'i' => 'a',
             'value' => sprintf('%0.4F', $this->getRequestLoadTime()),
             'unit' => 'seconds',
-			'title' => YiiDebug::t('Elapsed Time')
+	    'title' => YiiDebug::t('Elapsed Time')
         );
 
         $memoryUsage = number_format(Yii::getLogger()->getMemoryUsage() / 1024 / 1024, 2);
@@ -66,7 +66,7 @@ class YiiDebugToolbarResourceUsage extends CWidget
             'i' => 'p',
             'value' => $memoryUsage,
             'unit' => 'megabytes',
-			'title' => YiiDebug::t('Memory Usage') .'/'. YiiDebug::t('Memory Peak Usage')
+	    'title' => YiiDebug::t('Memory Usage') .'/'. YiiDebug::t('Memory Peak Usage')
         );
 
 
