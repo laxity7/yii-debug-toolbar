@@ -35,6 +35,11 @@ class YiiDebugToolbarRoute extends CLogRoute
      * - "*" for everything.
      */
     public $ipFilters=array('127.0.0.1','::1');
+	
+	/**
+	 * The filters are given in an array
+	 */
+	public $cookieFilters=array('YiiDebagger123');
 
     /**
      * Whitelist for response content types. DebugToolbarRoute won't write any
@@ -114,7 +119,7 @@ class YiiDebugToolbarRoute extends CLogRoute
         
         $this->enabled = strpos(trim($route, '/'), 'debug') !== 0;
 
-        $this->enabled && $this->enabled = ($this->allowIp(Yii::app()->request->userHostAddress)
+       $this->enabled && $this->enabled = (($this->allowIp(Yii::app()->request->userHostAddress) or $this->allowCookies())
                 && !Yii::app()->getRequest()->getIsAjaxRequest() && (Yii::app() instanceof CWebApplication))
         		&& $this->checkContentTypeWhitelist();
 
@@ -211,6 +216,18 @@ class YiiDebugToolbarRoute extends CLogRoute
       return in_array( $contentType, $this->contentTypeWhitelist );
     }
 
+	/**
+	 * Checks to see if the user cookie is allowed by {@link cookieFilters}.
+	 * @return boolean whether the user cookie is allowed by {@link cookieFilters}.
+	 */
+	protected function allowCookies() {
+		foreach ($this->cookieFilters as $filter) {
+			$filter = trim($filter);
+			if (isset($_COOKIE[$filter]))	return true;
+		}
+		return false;
+	}
+	
     /**
      * Checks to see if the user IP is allowed by {@link ipFilters}.
      * @param string $ip the user IP
