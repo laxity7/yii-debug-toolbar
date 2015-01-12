@@ -441,6 +441,7 @@
 
 #ydtb-toolbar div[data-ydtb-panel-data] > div{
 	overflow-y: auto;
+	overflow-x: hidden;
 	height: 100%;
 }
 
