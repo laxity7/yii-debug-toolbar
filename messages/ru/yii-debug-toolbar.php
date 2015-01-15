@@ -76,6 +76,17 @@ return array(
 	'Servers' => 'Сервер',
 	'No SQL queries were recorded during this request or profiling the SQL is DISABLED.' => 'Запросо к базе не было, либо профилирование SQL отключено.',
 
+// Cache
+	'Cache' => 'Кэш',
+	'Total' => 'Общее количество',
+	'Hit' => 'Количество чтений',
+	'Miss' => 'Количество промахов',
+	'No cache usage' => 'Кэш не используется',
+	'Cache requests' => 'Запросы к кэшу',
+	'Method' => 'Метод',
+	'Cache not configured' => 'Кэш не настроен',
+	'No cache request logged or profiling the cache is DISABLED.' => 'Обращений к кэшу нет, либо профилирование кэша отключено',
+
 //	logging
 	'Logging' => 'Логирование',
 	'{n} message|{n} messages' => '{n} сообщение|{n} сообщения|{n} сообщений',

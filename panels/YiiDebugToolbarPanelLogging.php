@@ -13,6 +13,7 @@
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @author Igor Golovanov <igor.golovanov@gmail.com>
+ * @author Nabi KaramAliZadeh <info@nabi.ir>
  * @version $Id$
  * @package YiiDebugToolbar
  * @since 1.1.7
@@ -34,6 +35,41 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
      * @var array
      */
     private $_logs;
+    
+    /**
+     * Colors and max number of durations
+     * NOTE: all max numbers must be desc
+     * @author Nabi KaramAliZadeh <info@nabi.ir>
+     * 
+     * @var array
+     */
+    public $colorsDuration = array(
+		array(
+			'textColor'=>'#fff',
+			'backgroundColor'=>'#c00',//red
+			'maxNumber'=>1,
+		),
+		array(
+			'textColor'=>'#000',
+			'backgroundColor'=>'#f60',//orange
+			'maxNumber'=>0.1,
+		),
+		array(
+			'textColor'=>'#000',
+			'backgroundColor'=>'#ff0',//yellow
+			'maxNumber'=>0.01,
+		),
+		array(
+			'textColor'=>'#000',
+			'backgroundColor'=>'#3c3',//green
+			'maxNumber'=>0.001,
+		),
+		array(
+			'textColor'=>'#000',
+			'backgroundColor'=>'#3cf',//blue
+			'maxNumber'=>0.0001,
+		),
+	);
 
     /**
      * {@inheritdoc}
@@ -113,5 +149,32 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
             }
         }
         return $logs;
+    }
+    
+    /**
+     * Calculate duration execute between two trace 
+     * @author Nabi KaramAliZadeh <info@nabi.ir>
+     * 
+     * @param float $new
+     * @param float $old
+     * @return array
+     */
+    public function diffTime($new, $old)
+    {
+       	$duration = $new - $old;
+    	$duration = ($old===null) ? '-' : sprintf('%06f', $duration);
+    	if($duration != '-'){
+    		foreach($this->colorsDuration as $item){
+    			if($duration >= $item['maxNumber']){
+    				$return = $item;
+    				break;
+    			}
+    		}
+    	}else{
+    		$return['textColor'] = '#000';
+    		$return['backgroundColor'] = '#fff';
+    	}
+    	$return['duration'] = $duration;
+    	return $return;
     }
 }

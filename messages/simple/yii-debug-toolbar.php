@@ -76,6 +76,17 @@ return array(
 	'Servers' => '',
 	'No SQL queries were recorded during this request or profiling the SQL is DISABLED.' => '',
 
+// Cache
+	'Cache' => '',
+	'Total' => '',
+	'Hit' => '',
+	'Miss' => '',
+	'No cache usage' => '',
+	'Cache requests' => '',
+	'Method' => '',
+	'Cache not configured' => '',
+	'No cache request logged or profiling the cache is DISABLED.' => '',
+
 //	logging
 	'Logging' => '',
 	'{n} message|{n} messages' => '',

@@ -14,6 +14,7 @@ Currently, the following panels have been written and are working:
 * A list of superglobals
 * Application settings
 * SQL queries including time to execute and param bindings
+* Cache requests including time
 * Logging output via Yii built-in logging
 
 
@@ -55,6 +56,22 @@ For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `r
 	),
 ```
 
+
+* To enable reports about cache usage you need to change application configuration like that
+```php
+<?php
+//...
+	'cache'=>array(
+	    'class' => 'ext.yii-debug-toolbar.YiiDebugCacheProxy',
+	    'enableProfiling' => true,
+	    'cache' => array(
+	        'class' => 'system.caching.CFileCache', // or other cache class
+	        //... any other valid settings for cache
+	    ),
+	),
+```
+
+
 ## TODOs and BUGS
 
 See: [issues](https://github.com/malyshev/yii-debug-toolbar/issues)
@@ -63,5 +80,7 @@ See: [issues](https://github.com/malyshev/yii-debug-toolbar/issues)
 <img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_1.png" alt="Screenshot1" />
 <img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_2.png" alt="Screenshot2" />
 <img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_3.png" alt="Screenshot3" />
+<img src="https://dl.dropboxusercontent.com/sh/09k0c42xasghu6c/Zq0WrQpxw5/screenshot_4.png" alt="Screenshot4" />
+<img src="https://dl.dropboxusercontent.com/s/8l0ne92rgsfb3mj/screenshot_5.png" alt="Screenshot5" />
 
 
