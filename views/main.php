@@ -1,4 +1,4 @@
-<div id="ydtb-toolbar" data-ydtb-toolbar class="ydtb-collapse">
+<div id="ydtb-toolbar" data-ydtb-toolbar class="ydtb-collapse" style="display: none">
     <a href="javascript:;//" data-ydtb-toggle="[data-ydtb-toolbar]"><?php echo YiiDebug::t('TOOLBAR') ?></a>
 	<div data-ydtb-sidebar>
 		<h1>Yii <?php echo Yii::getVersion() ?></h1>
